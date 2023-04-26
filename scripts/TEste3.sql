@@ -1,0 +1,13 @@
+DECLARE
+  v_CPF NUMBER;
+  v_NOME VARCHAR2(50);
+  v_IDADE NUMBER;
+BEGIN
+  FOR i IN 1..5000 LOOP
+    v_CPF := i;
+    v_NOME := 'Nome ' || i;
+    v_IDADE := DBMS_RANDOM.VALUE(18, 60);
+    
+    INSERT INTO usuario (CPF, NOME, IDADE) VALUES (v_CPF, v_NOME, v_IDADE);
+  END LOOP;
+END;
